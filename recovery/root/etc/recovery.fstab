@@ -1,0 +1,17 @@
+##Recovery Fstab for Moto Surfna LgPWN'd
+#
+#
+#device         mount point      fstype        [device2] [length=]
+
+/dev/block/bootdevice/by-name/system       /               ext4    ro,barrier=1                                                    wait
+/dev/block/bootdevice/by-name/cache        /cache          ext4    noatime,nosuid,nodev,barrier=1,data=ordered                     wait
+/dev/block/bootdevice/by-name/vendor       /vendor         ext4    ro,barrier=1                                                    wait
+/dev/block/bootdevice/by-name/userdata     /data           ext4    nobarrier,noatime,nosuid,nodev,discard,data=ordered,noauto_da_alloc,resgid=1065   wait,check,length=-16384
+/dev/block/mmcblk1p1                       /sdcard         vfat    nosuid,nodev,barrier=1,data=ordered,nodelalloc                  wait
+/dev/block/bootdevice/by-name/boot         /boot           emmc    defaults                                                        defaults
+/dev/block/bootdevice/by-name/recovery     /recovery       emmc    defaults                                                        defaults
+/dev/block/bootdevice/by-name/misc         /misc           emmc    defaults                                                        defaults
+/dev/block/bootdevice/by-name/oem          /oem            ext4    context=u:object_r:oemfs:s0                                     defaults
+/dev/block/bootdevice/by-name/modem        /modem          ext4    defaults                                                        defaults
+/dev/block/bootdevice/by-name/dsp          /dsp            ext4    defaults                                                        defaults
+/system	auto	/system_root/system	flags=bind;display="System/System";backup=1;usermrf;ignoreblkid
